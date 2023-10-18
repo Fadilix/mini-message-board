@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div class="page">
+    <h1>
+      <%= title %>
+    </h1>
+    <p>Welcome to <%= title %>
+    </p>
+
+    <ul class="messages">
+      <% messages.forEach(message=> { %>
+        <div class="message">
+          <li>
+            <strong>
+              <%=message.user%>
+            </strong> :
+            <%=message.text %>
+          </li>
+          <div>
+            <%=message.added%>
+          </div>
+        </div>
+        <% }) %>
+    </ul>
+
+  </div>
+  <form action="/" method="POST" class="form">
+    <div class="inputs">
+      <input type="text" placeholder="Username" name="messageUser" required>
+      <input type="text" placeholder="Message" name="messageText" required>
+    </div>
+    <button type="submit">submit</button>
+  </form>
+</body>
+
+</html>
